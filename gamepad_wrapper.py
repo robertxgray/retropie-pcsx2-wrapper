@@ -16,6 +16,7 @@ button2 = 315
 procName1 = '/usr/games/PCSX2'
 procName2 = '/opt/retropie/emulators/dolphin/bin/dolphin-emu-nogui'
 procName3 = 'rpcs3'
+procName4 = 'C:\cemu_1.21.5\Cemu.exe'
 
 #loop and filter by event code and print the mapped label
 for event in gamepad.read_loop():
@@ -30,7 +31,7 @@ for event in gamepad.read_loop():
                 print("PS Button and Start Pressed")
                 for process in psutil.process_iter():
                     #print(process.cmdline())
-                    if procName1 in process.cmdline() or procName2 in process.cmdline() or procName3 in process.cmdline():
+                    if procName1 in process.cmdline() or procName2 in process.cmdline() or procName3 in process.cmdline() or procName4 in process.cmdline():
                         print('Process found. Terminating it.')
                         process.terminate()
                         exit()
