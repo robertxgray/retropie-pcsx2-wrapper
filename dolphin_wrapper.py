@@ -21,14 +21,15 @@ while True:
     line = file.readline()
     if not line:
         time.sleep(3)
-    elif line.split()[-1] == 'IOCTL_STM_HOTRESET':
-        print('IOCTL_STM_HOTRESET')
+    # Tested with Dolphin 5.0
+    # You need to configure IOS_WC24 logs to be written to file
+    elif line.split()[-1] == 'IOCTL_NWC24_REQUEST_SHUTDOWN':
+        print('Exit to menu')
         for process in psutil.process_iter():
             #print(process.cmdline())
             if procName1 in process.cmdline():
                 print('Process found. Terminating it.')
-                file.close()
                 process.terminate()
-                exit()
-                break
+                file.close()
+        exit()
 

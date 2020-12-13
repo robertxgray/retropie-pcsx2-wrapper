@@ -34,5 +34,5 @@ for event in gamepad.read_loop():
                     if procName1 in process.cmdline() or procName2 in process.cmdline() or procName3 in process.cmdline() or procName4 in process.cmdline():
                         print('Process found. Terminating it.')
                         process.terminate()
-                        exit()
-                        break
+                exit()
+
