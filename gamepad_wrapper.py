@@ -29,10 +29,10 @@ for event in gamepad.read_loop():
             # button 2 pressed
             elif event2.code == button2 and event2.type == ecodes.EV_KEY and event2.value == 1:
                 print("PS Button and Start Pressed")
-                for process in psutil.process_iter():
-                    #print(process.cmdline())
-                    if procName1 in process.cmdline() or procName2 in process.cmdline() or procName3 in process.cmdline() or procName4 in process.cmdline():
-                        print('Process found. Terminating it.')
-                        process.terminate()
-                exit()
+                while True:
+                    for process in psutil.process_iter():
+                        #print(process.cmdline())
+                        if procName1 in process.cmdline() or procName2 in process.cmdline() or procName3 in process.cmdline() or procName4 in process.cmdline():
+                            print('Process found. Terminating it.')
+                            process.terminate()
 

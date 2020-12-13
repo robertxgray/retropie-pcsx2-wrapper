@@ -5,6 +5,7 @@ from subprocess import Popen
 
 # Process to look for to kill
 procName1 = '/opt/retropie/emulators/dolphin/bin/dolphin-emu-nogui'
+procName2 = '/opt/retropie/emulators/dolphin/bin/dolphin-emu'
 
 # Dolphin log file
 logfile = os.environ["HOME"] + '/.dolphin-emu/Logs/dolphin.log'
@@ -25,11 +26,11 @@ while True:
     # You need to configure IOS_WC24 logs to be written to file
     elif line.split()[-1] == 'IOCTL_NWC24_REQUEST_SHUTDOWN':
         print('Exit to menu')
-        for process in psutil.process_iter():
-            #print(process.cmdline())
-            if procName1 in process.cmdline():
-                print('Process found. Terminating it.')
-                process.terminate()
-                file.close()
-        exit()
+        file.close()
+        while True:
+            for process in psutil.process_iter():
+                #print(process.cmdline())
+                if procName1 in process.cmdline() or procName2 in process.cmdline():
+                    print('Process found. Terminating it.')
+                    process.terminate()
 
