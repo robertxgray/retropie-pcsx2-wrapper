@@ -12,4 +12,8 @@ elif [ $1 = 'wii' ]; then
 	do
 		kill "$PROC"
 	done
+
+	# Workaround to restore bluetooth
+	sudo modprobe -r btusb
+	sudo modprobe btusb
 fi
