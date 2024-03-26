@@ -5,6 +5,6 @@ then
 	/opt/retropie/configs/all/gamepad_wrapper_daemon.sh &
 fi
 # launch dolphin wrapper script
-if [ $1 = 'wii' ]; then
-	python3 /opt/retropie/configs/all/dolphin_wrapper.py &
-fi
+#if [ $1 = 'wii' ]; then
+#	(sleep 10 && python3 /opt/retropie/configs/all/dolphin_wrapper.py) &
+#fi
